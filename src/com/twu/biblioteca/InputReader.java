@@ -20,7 +20,7 @@ public class InputReader {
             System.out.println("IOException: " + e);
         }
 
-        return inputLine.toLowerCase();
+        return inputLine;
     }
 
 }

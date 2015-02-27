@@ -13,28 +13,30 @@ public class BibliotecaApp {
         String userInput = inputReader.getUserInput("Please, choose an action you would like to take: list, checkout, return or quite: ");
         Book userBookInput = new Book();
 
-        if(userInput.equals("list")){
+        if (userInput.equals("list")) {
             library.listBooks();
-        } else if(userInput.equals("checkout")){
+        } else if (userInput.equals("checkout")) {
 
-            userBookInput.bookName = inputReader.getUserInput("Please, enter name of the book: ");
-            if(library.checkoutBook(userBookInput)){
-                System.out.println("Thank you, enjoy the book " + userBookInput.bookName);
+            String userBookName = inputReader.getUserInput("Please, enter name of the book: ");
+
+            if (library.checkoutBook(library.findBook(userBookName))) {
+                System.out.println("Thank you, enjoy the book " + userBookName);
             } else {
                 System.out.println("Sorry, the book is not available, select a different book or correct the spelling.");
             }
-        } else if(userInput.equals("return")){
-            userBookInput.bookName = inputReader.getUserInput("Please, enter name of the book: ");
+        } else if (userInput.equals("return")) {
+            String userBookName = inputReader.getUserInput("Please, enter name of the book: ");
 
-            if(library.returnBook(userBookInput)){
-                System.out.println("Thank you for returning the book " + userBookInput.bookName);
+            if (library.returnBook(library.findBook(userBookName))) {
+                System.out.println("Thank you for returning the book " + userBookName);
             } else {
                 System.out.println("Sorry, that is not a valid book to return, try to check on your spelling.");
             }
-
         } else if(userInput.equals("quite")){
+
             System.out.println("Thank you for visiting our library. Good bye!");
-        } else {
+
+        }else {
             System.out.println("Please, choose valid option.");
         }
 

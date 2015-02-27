@@ -29,6 +29,7 @@ public class Library {
         book3.bookName = "Dracula";
         book3.bookAuthor = "Bram Stoker";
         book3.bookYear = "1897";
+        book3.isAvailable = false;
 
         this.listOfAvailableBooks.add(book1);
         this.listOfAvailableBooks.add(book2);
@@ -51,8 +52,17 @@ public class Library {
         return this.listOfAvailableBooks;
     }
 
+    public Book findBook(String userBookName){
+        for(Book oneBook : this.listOfAvailableBooks){
+            if(oneBook.bookName.equals(userBookName)){
+                return oneBook;
+            }
+        }
+        return null;
+    }
+
     public boolean checkoutBook(Book book){
-        if(this.listOfAvailableBooks.contains(book) && book.isAvailable == true){
+        if(this.listOfAvailableBooks.contains(book) && book.isAvailable){
             book.isAvailable = false;
             return true;
         }
@@ -61,7 +71,7 @@ public class Library {
     }
 
     public boolean returnBook(Book book){
-        if(this.listOfAvailableBooks.contains(book) && book.isAvailable == false){
+        if(this.listOfAvailableBooks.contains(book) && !book.isAvailable){
             book.isAvailable = true;
             return true;
         }

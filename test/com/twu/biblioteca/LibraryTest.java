@@ -15,6 +15,17 @@ public class LibraryTest {
     }
 
     @Test
+    public void testSetUpLibrary(){
+        Library lib = new Library();
+        Book book = new Book();
+        book.bookName = "Java";
+        book.bookAuthor = "man";
+        book.bookYear = "2010";
+        lib.listOfAvailableBooks.add(book);
+        assertTrue(lib.listOfAvailableBooks.contains(book));
+    }
+
+    @Test
     public void testListBooks() {
         Library lib = new Library();
         assertEquals(lib.listOfAvailableBooks, lib.listBooks());
