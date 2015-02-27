@@ -22,4 +22,5 @@ public class InputReader {
 
         return inputLine.toLowerCase();
     }
+
 }

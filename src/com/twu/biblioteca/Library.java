@@ -35,8 +35,6 @@ public class Library {
         this.listOfAvailableBooks.add(book3);
 
         System.out.println("Hello, welcome to our library!");
-        System.out.println("Please, choose an action you would like to take: list of books, checkout book, return book or leave library: ");
-
     }
 
     public void addBook(Book book){
