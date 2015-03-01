@@ -56,24 +56,39 @@ public class LibraryTest {
     }
 
     @Test
+    public void testFindBook(){
+        Library lib = new Library();
+        Book book = new Book();
+        lib.addBook(book);
+        book.bookName = "Java";
+
+        assertEquals(book, lib.findBook("Java"));
+        assertEquals(null, lib.findBook("Name of the book"));
+    }
+
+    @Test
     public void testCheckoutBook() {
         Library lib = new Library();
         Book book = new Book();
+        Book someBook = new Book();
         lib.addBook(book);
 
         lib.checkoutBook(book);
         assertFalse(book.isAvailable);
+        assertFalse(lib.checkoutBook(someBook));
     }
 
     @Test
     public void testReturnBook() {
         Library lib = new Library();
         Book book = new Book();
+        Book someBook = new Book();
         lib.addBook(book);
         lib.checkoutBook(book);
 
         lib.returnBook(book);
         assertTrue(book.isAvailable);
+        assertFalse(lib.returnBook(someBook));
     }
 
 }
