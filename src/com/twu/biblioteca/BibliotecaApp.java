@@ -28,7 +28,7 @@ public class BibliotecaApp {
                 availableList = library.listBooks();
 
                 for(Book oneBook : availableList){
-                    System.out.println(oneBook.bookName);
+                    System.out.println(oneBook.bookName + " by " + oneBook.bookAuthor + ", " + oneBook.bookYear);
                 }
 
             } else if (userInput.equals("checkout")) {
