@@ -13,7 +13,7 @@ public class LibraryTest {
         Library lib = new Library();
         lib.setUpLibrary();
 
-        assertEquals(5, lib.getListOfAvailableBooks().size());
+        assertEquals(5, lib.getListOfAvailableItems().size());
     }
 
     @Test
@@ -23,7 +23,7 @@ public class LibraryTest {
 
         lib.addBook(book);
 
-        assertTrue(lib.getListOfAvailableBooks().contains(book));
+        assertTrue(lib.getListOfAvailableItems().contains(book));
     }
 
     @Test
@@ -34,47 +34,47 @@ public class LibraryTest {
         book.setTitle("Java");
         book.setAuthor("man");
         book.setYear("2010");
-        lib.setListOfAvailableBooks(new ArrayList<LibItem>());
-        lib.getListOfAvailableBooks().add(book);
+        lib.setListOfAvailableItems(new ArrayList<LibItem>());
+        lib.getListOfAvailableItems().add(book);
 
-        assertTrue(lib.getListOfAvailableBooks().contains(book));
+        assertTrue(lib.getListOfAvailableItems().contains(book));
     }
 
     @Test
-    public void testListBooks() {
+    public void testListItems() {
         Library lib = new Library();
         ArrayList<Book> availableBooks = new ArrayList<Book>();
         Book book = new Book();
 
         lib.addBook(book);
         availableBooks.add(book);
-        assertEquals(availableBooks, lib.listBooks());
+        assertEquals(availableBooks, lib.listItems());
 
         book.isAvailable = false;
-        assertEquals(new ArrayList<Book>(), lib.listBooks());
+        assertEquals(new ArrayList<Book>(), lib.listItems());
     }
 
     @Test
-    public void testFindBook(){
+    public void testFindItems(){
         Library lib = new Library();
         Book book = new Book();
         lib.addBook(book);
         book.setTitle("Java");
 
-        assertEquals(book, lib.findBook("Java"));
-        assertEquals(null, lib.findBook("Name of the book"));
+        assertEquals(book, lib.findItem("Java"));
+        assertEquals(null, lib.findItem("Name of the book"));
     }
 
     @Test
-    public void testCheckoutBook() {
+    public void testCheckoutItem() {
         Library lib = new Library();
         Book book = new Book();
         Book someBook = new Book();
         lib.addBook(book);
 
-        lib.checkoutBook(book);
+        lib.checkoutItem(book);
         assertFalse(book.isAvailable);
-        assertFalse(lib.checkoutBook(someBook));
+        assertFalse(lib.checkoutItem(someBook));
     }
 
     @Test
@@ -83,11 +83,11 @@ public class LibraryTest {
         Book book = new Book();
         Book someBook = new Book();
         lib.addBook(book);
-        lib.checkoutBook(book);
+        lib.checkoutItem(book);
 
-        lib.returnBook(book);
+        lib.returnItem(book);
         assertTrue(book.isAvailable);
-        assertFalse(lib.returnBook(someBook));
+        assertFalse(lib.returnItem(someBook));
     }
 
 }

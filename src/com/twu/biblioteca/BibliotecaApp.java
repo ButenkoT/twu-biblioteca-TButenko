@@ -25,7 +25,7 @@ public class BibliotecaApp {
             if (userInput.equals("list")) {
 
                 ArrayList<LibItem> availableList;
-                availableList = library.listBooks();
+                availableList = library.listItems();
 
                 for(LibItem oneLibItem : availableList){
                     System.out.println("'" + oneLibItem.getTitle() + "' by " + oneLibItem.getAuthor() + ", " + oneLibItem.getYear());
@@ -35,7 +35,7 @@ public class BibliotecaApp {
 
                 String userTitle = inputReader.getUserInput("Please, enter title: ");
 
-                if (library.checkoutBook(library.findBook(userTitle))) {
+                if (library.checkoutItem(library.findItem(userTitle))) {
                     System.out.println("Thank you, enjoy '" + userTitle + "'");
                 } else {
                     System.out.println("Sorry, the item is not available, select a different item or correct the spelling.");
@@ -43,7 +43,7 @@ public class BibliotecaApp {
             } else if (userInput.equals("return")) {
                 String userTitle = inputReader.getUserInput("Please, enter title: ");
 
-                if (library.returnBook(library.findBook(userTitle))) {
+                if (library.returnItem(library.findItem(userTitle))) {
                     System.out.println("Thank you for returning '" + userTitle + "'");
                 } else {
                     System.out.println("Sorry, that is not a valid item to return, try to check on your spelling.");

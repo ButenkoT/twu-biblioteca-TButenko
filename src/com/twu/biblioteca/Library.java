@@ -8,18 +8,18 @@ import java.util.ArrayList;
  */
 public class Library {
 
-    private ArrayList<LibItem> listOfAvailableBooks;
+    private ArrayList<LibItem> listOfAvailableItems;
 
-    public ArrayList<LibItem> getListOfAvailableBooks(){
-        return listOfAvailableBooks;
+    public ArrayList<LibItem> getListOfAvailableItems(){
+        return listOfAvailableItems;
     }
 
-    public void setListOfAvailableBooks(ArrayList<LibItem> newList){
-        this.listOfAvailableBooks = newList;
+    public void setListOfAvailableItems(ArrayList<LibItem> newList){
+        this.listOfAvailableItems = newList;
     }
 
     public Library() {
-        this.listOfAvailableBooks = new ArrayList<LibItem>();
+        this.listOfAvailableItems = new ArrayList<LibItem>();
     }
 
     public void setUpLibrary() {
@@ -52,25 +52,25 @@ public class Library {
         movie2.setYear("1994");
         movie2.setRating("10");
 
-        this.setListOfAvailableBooks(new ArrayList<LibItem>());
+        this.setListOfAvailableItems(new ArrayList<LibItem>());
 
-        this.getListOfAvailableBooks().add(book1);
-        this.getListOfAvailableBooks().add(book2);
-        this.getListOfAvailableBooks().add(book3);
+        this.getListOfAvailableItems().add(book1);
+        this.getListOfAvailableItems().add(book2);
+        this.getListOfAvailableItems().add(book3);
 
-        this.getListOfAvailableBooks().add(movie1);
-        this.getListOfAvailableBooks().add(movie2);
+        this.getListOfAvailableItems().add(movie1);
+        this.getListOfAvailableItems().add(movie2);
 
     }
 
-    public void addBook(Book book) {
-        this.getListOfAvailableBooks().add(book);
+    public void addBook(LibItem item) {
+        this.getListOfAvailableItems().add(item);
     }
 
-    public ArrayList<LibItem> listBooks() {
+    public ArrayList<LibItem> listItems() {
 
         ArrayList<LibItem> availableItems = new ArrayList<LibItem>();
-        for (LibItem oneLibItem : this.getListOfAvailableBooks()) {
+        for (LibItem oneLibItem : this.getListOfAvailableItems()) {
 
             if (oneLibItem.isAvailable) {
                availableItems.add(oneLibItem);
@@ -79,8 +79,8 @@ public class Library {
         return availableItems;
     }
 
-    public LibItem findBook(String userItemName) {
-        for (LibItem oneLibItem : this.getListOfAvailableBooks()) {
+    public LibItem findItem(String userItemName) {
+        for (LibItem oneLibItem : this.getListOfAvailableItems()) {
             if (oneLibItem.getTitle().equals(userItemName)) {
                 return oneLibItem;
             }
@@ -88,8 +88,8 @@ public class Library {
         return null;
     }
 
-    public boolean checkoutBook(LibItem item) {
-        if (this.getListOfAvailableBooks().contains(item) && item.isAvailable) {
+    public boolean checkoutItem(LibItem item) {
+        if (this.getListOfAvailableItems().contains(item) && item.isAvailable) {
             item.isAvailable = false;
             return true;
         }
@@ -97,8 +97,8 @@ public class Library {
         return false;
     }
 
-    public boolean returnBook(LibItem item) {
-        if (this.getListOfAvailableBooks().contains(item) && !item.isAvailable) {
+    public boolean returnItem(LibItem item) {
+        if (this.getListOfAvailableItems().contains(item) && !item.isAvailable) {
             item.isAvailable = true;
             return true;
         }
