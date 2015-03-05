@@ -24,29 +24,29 @@ public class BibliotecaApp {
 
             if (userInput.equals("list")) {
 
-                ArrayList<Book> availableList;
+                ArrayList<LibItem> availableList;
                 availableList = library.listBooks();
 
-                for(Book oneBook : availableList){
-                    System.out.println("'" + oneBook.getBookTitle() + "' by " + oneBook.getBookAuthor() + ", " + oneBook.getBookYear());
+                for(LibItem oneLibItem : availableList){
+                    System.out.println("'" + oneLibItem.getTitle() + "' by " + oneLibItem.getAuthor() + ", " + oneLibItem.getYear());
                 }
 
             } else if (userInput.equals("checkout")) {
 
-                String userBookTitle = inputReader.getUserInput("Please, enter name of the book: ");
+                String userTitle = inputReader.getUserInput("Please, enter title: ");
 
-                if (library.checkoutBook(library.findBook(userBookTitle))) {
-                    System.out.println("Thank you, enjoy the book " + "'" + userBookTitle + "'");
+                if (library.checkoutBook(library.findBook(userTitle))) {
+                    System.out.println("Thank you, enjoy '" + userTitle + "'");
                 } else {
-                    System.out.println("Sorry, the book is not available, select a different book or correct the spelling.");
+                    System.out.println("Sorry, the item is not available, select a different item or correct the spelling.");
                 }
             } else if (userInput.equals("return")) {
-                String userBookTitle = inputReader.getUserInput("Please, enter name of the book: ");
+                String userTitle = inputReader.getUserInput("Please, enter title: ");
 
-                if (library.returnBook(library.findBook(userBookTitle))) {
-                    System.out.println("Thank you for returning the book " + "'" + userBookTitle + "'");
+                if (library.returnBook(library.findBook(userTitle))) {
+                    System.out.println("Thank you for returning '" + userTitle + "'");
                 } else {
-                    System.out.println("Sorry, that is not a valid book to return, try to check on your spelling.");
+                    System.out.println("Sorry, that is not a valid item to return, try to check on your spelling.");
                 }
             } else if (userInput.equals("quit")) {
 

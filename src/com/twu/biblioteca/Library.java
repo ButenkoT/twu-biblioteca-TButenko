@@ -8,18 +8,18 @@ import java.util.ArrayList;
  */
 public class Library {
 
-    private ArrayList<Book> listOfAvailableBooks;
+    private ArrayList<LibItem> listOfAvailableBooks;
 
-    public ArrayList<Book> getListOfAvailableBooks(){
+    public ArrayList<LibItem> getListOfAvailableBooks(){
         return listOfAvailableBooks;
     }
 
-    public void setListOfAvailableBooks(ArrayList<Book> newList){
+    public void setListOfAvailableBooks(ArrayList<LibItem> newList){
         this.listOfAvailableBooks = newList;
     }
 
     public Library() {
-        this.listOfAvailableBooks = new ArrayList<Book>();
+        this.listOfAvailableBooks = new ArrayList<LibItem>();
     }
 
     public void setUpLibrary() {
@@ -27,61 +27,79 @@ public class Library {
         Book book2 = new Book();
         Book book3 = new Book();
 
-        book1.setBookTitle("To Kill the Mockingbird");
-        book1.setBookAuthor("Harper Lee");
-        book1.setBookYear("1960");
+        book1.setTitle("To Kill the Mockingbird");
+        book1.setAuthor("Harper Lee");
+        book1.setYear("1960");
 
-        book2.setBookTitle("Emma");
-        book2.setBookAuthor("Jane Austen");
-        book2.setBookYear("1815");
+        book2.setTitle("Emma");
+        book2.setAuthor("Jane Austen");
+        book2.setYear("1815");
 
-        book3.setBookTitle("Dracula");
-        book3.setBookAuthor("Bram Stoker");
-        book3.setBookYear("1897");
+        book3.setTitle("Dracula");
+        book3.setAuthor("Bram Stoker");
+        book3.setYear("1897");
 
-        this.listOfAvailableBooks.add(book1);
-        this.listOfAvailableBooks.add(book2);
-        this.listOfAvailableBooks.add(book3);
+        Movie movie1 = new Movie();
+        Movie movie2 = new Movie();
+
+        movie1.setTitle("The Godfather");
+        movie1.setAuthor("F.F.Coppola");
+        movie1.setYear("1972");
+        movie1.setRating("9");
+
+        movie2.setTitle("Pulp Fiction");
+        movie2.setAuthor("Q.Tarantino");
+        movie2.setYear("1994");
+        movie2.setRating("10");
+
+        this.setListOfAvailableBooks(new ArrayList<LibItem>());
+
+        this.getListOfAvailableBooks().add(book1);
+        this.getListOfAvailableBooks().add(book2);
+        this.getListOfAvailableBooks().add(book3);
+
+        this.getListOfAvailableBooks().add(movie1);
+        this.getListOfAvailableBooks().add(movie2);
 
     }
 
     public void addBook(Book book) {
-        this.listOfAvailableBooks.add(book);
+        this.getListOfAvailableBooks().add(book);
     }
 
-    public ArrayList<Book> listBooks() {
+    public ArrayList<LibItem> listBooks() {
 
-        ArrayList<Book> availableBooks = new ArrayList<Book>();
-        for (Book oneBook : this.listOfAvailableBooks) {
+        ArrayList<LibItem> availableItems = new ArrayList<LibItem>();
+        for (LibItem oneLibItem : this.getListOfAvailableBooks()) {
 
-            if (oneBook.isAvailable) {
-               availableBooks.add(oneBook);
+            if (oneLibItem.isAvailable) {
+               availableItems.add(oneLibItem);
             }
         }
-        return availableBooks;
+        return availableItems;
     }
 
-    public Book findBook(String userBookName) {
-        for (Book oneBook : this.listOfAvailableBooks) {
-            if (oneBook.getBookTitle().equals(userBookName)) {
-                return oneBook;
+    public LibItem findBook(String userItemName) {
+        for (LibItem oneLibItem : this.getListOfAvailableBooks()) {
+            if (oneLibItem.getTitle().equals(userItemName)) {
+                return oneLibItem;
             }
         }
         return null;
     }
 
-    public boolean checkoutBook(Book book) {
-        if (this.listOfAvailableBooks.contains(book) && book.isAvailable) {
-            book.isAvailable = false;
+    public boolean checkoutBook(LibItem item) {
+        if (this.getListOfAvailableBooks().contains(item) && item.isAvailable) {
+            item.isAvailable = false;
             return true;
         }
 
         return false;
     }
 
-    public boolean returnBook(Book book) {
-        if (this.listOfAvailableBooks.contains(book) && !book.isAvailable) {
-            book.isAvailable = true;
+    public boolean returnBook(LibItem item) {
+        if (this.getListOfAvailableBooks().contains(item) && !item.isAvailable) {
+            item.isAvailable = true;
             return true;
         }
 
