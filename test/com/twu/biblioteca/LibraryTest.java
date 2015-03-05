@@ -13,7 +13,7 @@ public class LibraryTest {
         Library lib = new Library();
         lib.setUpLibrary();
 
-        assertEquals(3, lib.listOfAvailableBooks.size());
+        assertEquals(3, lib.getListOfAvailableBooks().size());
     }
 
     @Test
@@ -23,7 +23,7 @@ public class LibraryTest {
 
         lib.addBook(book);
 
-        assertTrue(lib.listOfAvailableBooks.contains(book));
+        assertTrue(lib.getListOfAvailableBooks().contains(book));
     }
 
     @Test
@@ -34,11 +34,10 @@ public class LibraryTest {
         book.setBookTitle("Java");
         book.setBookAuthor("man");
         book.setBookYear("2010");
+        lib.setListOfAvailableBooks(new ArrayList<Book>());
+        lib.getListOfAvailableBooks().add(book);
 
-        lib.listOfAvailableBooks.add(book);
-
-
-        assertTrue(lib.listOfAvailableBooks.contains(book));
+        assertTrue(lib.getListOfAvailableBooks().contains(book));
     }
 
     @Test

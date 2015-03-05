@@ -8,15 +8,15 @@ import java.util.ArrayList;
  */
 public class Library {
 
-    ArrayList<Book> listOfAvailableBooks;
-//
-//    public ArrayList getListOfAvailableBooks(){
-//        return listOfAvailableBooks;
-//    }
-//
-//    public void setListOfAvailableBooks(ArrayList newList){
-//        listOfAvailableBooks = newList;
-//    }
+    private ArrayList<Book> listOfAvailableBooks;
+
+    public ArrayList<Book> getListOfAvailableBooks(){
+        return listOfAvailableBooks;
+    }
+
+    public void setListOfAvailableBooks(ArrayList<Book> newList){
+        this.listOfAvailableBooks = newList;
+    }
 
     public Library() {
         this.listOfAvailableBooks = new ArrayList<Book>();
