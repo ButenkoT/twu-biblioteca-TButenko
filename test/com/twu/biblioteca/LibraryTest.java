@@ -31,9 +31,9 @@ public class LibraryTest {
         Library lib = new Library();
         Book book = new Book();
 
-        book.bookName = "Java";
-        book.bookAuthor = "man";
-        book.bookYear = "2010";
+        book.setBookTitle("Java");
+        book.setBookAuthor("man");
+        book.setBookYear("2010");
 
         lib.listOfAvailableBooks.add(book);
 
@@ -60,7 +60,7 @@ public class LibraryTest {
         Library lib = new Library();
         Book book = new Book();
         lib.addBook(book);
-        book.bookName = "Java";
+        book.setBookTitle("Java");
 
         assertEquals(book, lib.findBook("Java"));
         assertEquals(null, lib.findBook("Name of the book"));

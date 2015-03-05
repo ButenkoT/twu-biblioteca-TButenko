@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -8,6 +9,14 @@ import java.util.ArrayList;
 public class Library {
 
     ArrayList<Book> listOfAvailableBooks;
+//
+//    public ArrayList getListOfAvailableBooks(){
+//        return listOfAvailableBooks;
+//    }
+//
+//    public void setListOfAvailableBooks(ArrayList newList){
+//        listOfAvailableBooks = newList;
+//    }
 
     public Library() {
         this.listOfAvailableBooks = new ArrayList<Book>();
@@ -18,17 +27,17 @@ public class Library {
         Book book2 = new Book();
         Book book3 = new Book();
 
-        book1.bookName = "To Kill the Mockingbird";
-        book1.bookAuthor = "Harper Lee";
-        book1.bookYear = "1960";
+        book1.setBookTitle("To Kill the Mockingbird");
+        book1.setBookAuthor("Harper Lee");
+        book1.setBookYear("1960");
 
-        book2.bookName = "Emma";
-        book2.bookAuthor = "Jane Austen";
-        book2.bookYear = "1815";
+        book2.setBookTitle("Emma");
+        book2.setBookAuthor("Jane Austen");
+        book2.setBookYear("1815");
 
-        book3.bookName = "Dracula";
-        book3.bookAuthor = "Bram Stoker";
-        book3.bookYear = "1897";
+        book3.setBookTitle("Dracula");
+        book3.setBookAuthor("Bram Stoker");
+        book3.setBookYear("1897");
 
         this.listOfAvailableBooks.add(book1);
         this.listOfAvailableBooks.add(book2);
@@ -54,7 +63,7 @@ public class Library {
 
     public Book findBook(String userBookName) {
         for (Book oneBook : this.listOfAvailableBooks) {
-            if (oneBook.bookName.equals(userBookName)) {
+            if (oneBook.getBookTitle().equals(userBookName)) {
                 return oneBook;
             }
         }

@@ -28,23 +28,23 @@ public class BibliotecaApp {
                 availableList = library.listBooks();
 
                 for(Book oneBook : availableList){
-                    System.out.println(oneBook.bookName + " by " + oneBook.bookAuthor + ", " + oneBook.bookYear);
+                    System.out.println("'" + oneBook.getBookTitle() + "' by " + oneBook.getBookAuthor() + ", " + oneBook.getBookYear());
                 }
 
             } else if (userInput.equals("checkout")) {
 
-                String userBookName = inputReader.getUserInput("Please, enter name of the book: ");
+                String userBookTitle = inputReader.getUserInput("Please, enter name of the book: ");
 
-                if (library.checkoutBook(library.findBook(userBookName))) {
-                    System.out.println("Thank you, enjoy the book " + userBookName);
+                if (library.checkoutBook(library.findBook(userBookTitle))) {
+                    System.out.println("Thank you, enjoy the book " + "'" + userBookTitle + "'");
                 } else {
                     System.out.println("Sorry, the book is not available, select a different book or correct the spelling.");
                 }
             } else if (userInput.equals("return")) {
-                String userBookName = inputReader.getUserInput("Please, enter name of the book: ");
+                String userBookTitle = inputReader.getUserInput("Please, enter name of the book: ");
 
-                if (library.returnBook(library.findBook(userBookName))) {
-                    System.out.println("Thank you for returning the book " + userBookName);
+                if (library.returnBook(library.findBook(userBookTitle))) {
+                    System.out.println("Thank you for returning the book " + "'" + userBookTitle + "'");
                 } else {
                     System.out.println("Sorry, that is not a valid book to return, try to check on your spelling.");
                 }

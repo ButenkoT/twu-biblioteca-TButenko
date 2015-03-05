@@ -4,9 +4,33 @@ package com.twu.biblioteca;
  */
 public class Book {
 
-    String bookName;
-    String bookAuthor;
-    String bookYear;
+    private String bookTitle;
+    private String bookAuthor;
+    private String bookYear;
     boolean isAvailable = true;
+
+    public String getBookTitle(){
+        return bookTitle;
+    }
+
+    public String getBookAuthor(){
+        return bookAuthor;
+    }
+
+    public String getBookYear(){
+        return bookYear;
+    }
+
+    public void setBookTitle( String newBookTitle){
+        bookTitle = newBookTitle;
+    }
+
+    public void setBookAuthor( String newBookAuthor){
+        bookAuthor = newBookAuthor;
+    }
+
+    public void setBookYear( String newBookYear){
+        bookYear = newBookYear;
+    }
 
 }
