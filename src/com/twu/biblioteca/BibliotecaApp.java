@@ -13,7 +13,7 @@ public class BibliotecaApp {
 
         User user = new User();
 
-        user.userProfile("Tanya B", "tanya@gmail.com", "0450 111 222");
+        user.userProfile("Tanya B", "tanya@gmail.com", "0450111222");
         user.setUserLogin("111-2222", "chicken10");
 
         System.out.println("Hello, welcome to our library!");
@@ -21,8 +21,20 @@ public class BibliotecaApp {
         InputReader inputReader = new InputReader();
 
         String userInput = "";
+        String userLibNum = "";
+        String userPass = "";
 
         while (!userInput.equals("quit")) {
+
+
+            while (!user.checkUserLogin(userLibNum, userPass)) {
+                System.out.println("Please, login to library with your library number.");
+                userLibNum = inputReader.getUserInput("Your library number: ");
+                userPass = inputReader.getUserInput("Your password: ");
+                user.getUserLogin();
+                System.out.println(user.checkUserLogin(userLibNum, userPass));
+            }
+
 
             userInput = inputReader.getUserInput("Please, choose an action you would like to take: list, checkout, return or quit: ");
 

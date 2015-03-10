@@ -33,7 +33,7 @@ public class User {
     }
 
     public Boolean checkUserLogin(String inputUserLibNumber, String inputUserPassword){
-        return (inputUserLibNumber == getUserLogin()[0] && inputUserPassword == getUserLogin()[1]);
+        return (inputUserLibNumber.equals(getUserLogin()[0])  && inputUserPassword.equals(getUserLogin()[1]));
     }
 
 }
