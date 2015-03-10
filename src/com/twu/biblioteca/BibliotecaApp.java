@@ -11,6 +11,11 @@ public class BibliotecaApp {
 
         library.setUpLibrary();
 
+        User user = new User();
+
+        user.userProfile("Tanya B", "tanya@gmail.com", "0450 111 222");
+        user.setUserLogin("111-2222", "chicken10");
+
         System.out.println("Hello, welcome to our library!");
 
         InputReader inputReader = new InputReader();

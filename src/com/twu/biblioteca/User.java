@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 /**
  * Created by tanyabutenko on 10/03/15.
  */
-public class UserProfile {
+public class User {
     private String UserName;
     private String UserEmail;
     private String UserPhone;
@@ -21,7 +21,7 @@ public class UserProfile {
        return UserLogin;
     }
 
-    public void UserProfile(String newUserName, String newUserEmail, String newUserPhone){
+    public void userProfile(String newUserName, String newUserEmail, String newUserPhone){
         UserName = newUserName;
         UserEmail = newUserEmail;
         UserPhone = newUserPhone;
@@ -30,6 +30,10 @@ public class UserProfile {
     public void setUserLogin(String newUserLibraryNumber, String newUserPassword){
         UserLibraryNumber = newUserLibraryNumber;
         UserPassword = newUserPassword;
+    }
+
+    public Boolean checkUserLogin(String inputUserLibNumber, String inputUserPassword){
+        return (inputUserLibNumber == getUserLogin()[0] && inputUserPassword == getUserLogin()[1]);
     }
 
 }

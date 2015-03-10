@@ -17,11 +17,11 @@ public class LibraryTest {
     }
 
     @Test
-    public void testAddBook() {
+    public void testAddItem() {
         Library lib = new Library();
         Book book = new Book();
 
-        lib.addBook(book);
+        lib.addItem(book);
 
         assertTrue(lib.getListOfAvailableItems().contains(book));
     }
@@ -46,7 +46,7 @@ public class LibraryTest {
         ArrayList<Book> availableBooks = new ArrayList<Book>();
         Book book = new Book();
 
-        lib.addBook(book);
+        lib.addItem(book);
         availableBooks.add(book);
         assertEquals(availableBooks, lib.listItems());
 
@@ -55,10 +55,10 @@ public class LibraryTest {
     }
 
     @Test
-    public void testFindItems(){
+    public void testFindItem(){
         Library lib = new Library();
         Book book = new Book();
-        lib.addBook(book);
+        lib.addItem(book);
         book.setTitle("Java");
 
         assertEquals(book, lib.findItem("Java"));
@@ -70,7 +70,7 @@ public class LibraryTest {
         Library lib = new Library();
         Book book = new Book();
         Book someBook = new Book();
-        lib.addBook(book);
+        lib.addItem(book);
 
         lib.checkoutItem(book);
         assertFalse(book.isAvailable);
@@ -78,11 +78,11 @@ public class LibraryTest {
     }
 
     @Test
-    public void testReturnBook() {
+    public void testReturnItem() {
         Library lib = new Library();
         Book book = new Book();
         Book someBook = new Book();
-        lib.addBook(book);
+        lib.addItem(book);
         lib.checkoutItem(book);
 
         lib.returnItem(book);

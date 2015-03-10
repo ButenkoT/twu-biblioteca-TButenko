@@ -63,7 +63,7 @@ public class Library {
 
     }
 
-    public void addBook(LibItem item) {
+    public void addItem(LibItem item) {
         this.getListOfAvailableItems().add(item);
     }
 
